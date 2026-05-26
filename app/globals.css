@@ -1,26 +1,223 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Fonts */
+  --font-display: var(--font-archivo);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-chivo-mono);
+
+  /* Brand */
+  --color-brand: #00b4fd;
+  --color-brand-deep: #003ace;
+  --color-brand-navy: #031a6e;
+
+  /* Surfaces */
+  --color-bg: #000d12;       
+  --color-bg-2: #01141b;
+  --color-ink: #0b0b0b;
+  --color-light: #e9f4f9;     
+  --color-cream: #fcfef5;
+  --color-surface: #ffffff;
+
+  /* Foreground / text */
+  --color-fg: #ffffff;
+  --color-fg-dark: #0b0b0b;
+  --color-muted-strong: #586e84;
+  --color-muted-2: #aeaeae;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-light: #e9e9e9;
+
+  /* Accents from the Figma palette */
+  --color-accent-red: #e6492d;
+  --color-accent-amber: #ffc145;
+  --color-accent-violet: #9280fd;
+  --color-accent-green: #74f1ae;
+
+  /* Typography scale (Figma) */
+  --text-display: 53px;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.01em;
+
+  --text-h1: 47px;
+  --text-h1--line-height: 1.2;
+  --text-h1--letter-spacing: -0.01em;
+
+  --text-h2: 37px;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.01em;
+
+  --text-h3: 27px;
+  --text-h3--line-height: 1.2;
+
+  --text-title: 22px;
+  --text-title--line-height: 1.2;
+
+  --text-body: 16px;
+  --text-body--line-height: 1.3;
+
+  --text-small: 14px;
+  --text-small--line-height: 1.4;
+
+  --text-label: 12px;
+  --text-label--line-height: 1.3;
+  --text-label--letter-spacing: 0.04em;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Brand shadows */
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 0.04);
+  --shadow-elev: 0 8px 40px rgb(0 0 0 / 0.05);
+  --shadow-glow: 0 0 24px rgb(1 70 211 / 0.25);
 }
 
+/* shadcn's semantic mapping (preserved verbatim from `shadcn init`).
+   We only override the values it reads on :root below. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Brand-level vars referenced outside @theme */
+  --grad-brand: linear-gradient(135deg, #00b4fd 0%, #003ace 100%);
+
+  /* shadcn semantic vars — set to our N7 dark theme */
+  --background: #000d12;
+  --foreground: #ffffff;
+  --card: #01141b;
+  --card-foreground: #ffffff;
+  --popover: #01141b;
+  --popover-foreground: #ffffff;
+  --primary: #00b4fd;
+  --primary-foreground: #000d12;
+  --secondary: #0b1f29;
+  --secondary-foreground: #ffffff;
+  --muted: #586e84;
+  --muted-foreground: #aeaeae;
+  --accent: #031a6e;
+  --accent-foreground: #ffffff;
+  --destructive: #e6492d;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #00b4fd;
+  --chart-1: #00b4fd;
+  --chart-2: #031a6e;
+  --chart-3: #9280fd;
+  --chart-4: #74f1ae;
+  --chart-5: #ffc145;
+  --radius: 16px;
+  --sidebar: #01141b;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00b4fd;
+  --sidebar-primary-foreground: #000d12;
+  --sidebar-accent: #031a6e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #00b4fd;
+}
+
+/* Light-mode override (kept so shadcn components added later still
+   support .dark scoping if we ever wrap a light section that way). */
+.dark {
+  --background: #000d12;
+  --foreground: #ffffff;
+  --card: #01141b;
+  --card-foreground: #ffffff;
+  --popover: #01141b;
+  --popover-foreground: #ffffff;
+  --primary: #00b4fd;
+  --primary-foreground: #000d12;
+  --secondary: #0b1f29;
+  --secondary-foreground: #ffffff;
+  --muted: #586e84;
+  --muted-foreground: #aeaeae;
+  --accent: #031a6e;
+  --accent-foreground: #ffffff;
+  --destructive: #e6492d;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #00b4fd;
+  --sidebar: #01141b;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00b4fd;
+  --sidebar-primary-foreground: #000d12;
+  --sidebar-accent: #031a6e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #00b4fd;
+}
+
+/* Figma artboard is 1440px wide, 12-col grid with 80px outer margin.
+   Mobile-first: 20px gutters, scaling smoothly up to the design width. */
+@utility container-page {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 80px);
+}
+
+/* Chivo Mono labels: uppercase tracking helper. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    @apply font-sans;
+    scrollbar-gutter: stable;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--color-brand) 35%, transparent);
+    color: #ffffff;
+  }
 }

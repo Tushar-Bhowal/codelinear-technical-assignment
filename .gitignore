@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only project notes / generated snapshots
+CLAUDE.md
+.claude/
+figma-tokens.json
