@@ -38,6 +38,10 @@
   --color-accent-green: #74f1ae;
 
   /* Typography scale (Figma) */
+  --text-display-xl: 67px;
+  --text-display-xl--line-height: 1.2;
+  --text-display-xl--letter-spacing: -0.01em;
+
   --text-display: 53px;
   --text-display--line-height: 1.1;
   --text-display--letter-spacing: -0.01em;
@@ -75,6 +79,13 @@
   --shadow-card: 0 1px 3px rgb(0 0 0 / 0.04);
   --shadow-elev: 0 8px 40px rgb(0 0 0 / 0.05);
   --shadow-glow: 0 0 24px rgb(1 70 211 / 0.25);
+
+  --animate-marquee: marquee 28s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
 
 /* shadcn's semantic mapping (preserved verbatim from `shadcn init`).
@@ -118,7 +129,7 @@
 
 :root {
   /* Brand-level vars referenced outside @theme */
-  --grad-brand: linear-gradient(135deg, #00b4fd 0%, #003ace 100%);
+  --grad-brand: linear-gradient(106.53deg, #00b4fd -5.68%, #003ace 86.98%);
 
   /* shadcn semantic vars — set to our N7 dark theme */
   --background: #000d12;

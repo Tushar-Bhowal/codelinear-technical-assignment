@@ -44,3 +44,10 @@ next-env.d.ts
 CLAUDE.md
 .claude/
 figma-tokens.json
+
+# figma extraction — dev-only refs (production assets in public/ are tracked)
+figma/
+
+# local-only dev tooling
+tasks.md
+scripts/

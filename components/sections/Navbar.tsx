@@ -57,6 +57,7 @@ export function Navbar() {
         <Button
           variant="outline"
           render={<Link href="#contact" />}
+          nativeButton={false}
           className="hidden h-6.5 w-40.25 gap-2 rounded-[6px] border border-light bg-transparent px-9.25 py-1.25 font-mono text-[12px] font-normal uppercase leading-[1.3] tracking-normal text-light transition-colors hover:border-light hover:bg-light hover:text-bg md:inline-flex"
         >
           Request Demo
