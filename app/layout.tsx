@@ -20,6 +20,20 @@ export const metadata: Metadata = {
   title: "N7 — The new foundation of modern banking",
   description:
     "N7 / CB7 — cloud-native core and digital banking platform built for the future of financial services.",
+  openGraph: {
+    title: "N7 — The new foundation of modern banking",
+    description:
+      "N7 / CB7 — cloud-native core and digital banking platform built for the future of financial services.",
+    siteName: "N7 Banking",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "N7 — The new foundation of modern banking",
+    description:
+      "N7 / CB7 — cloud-native core and digital banking platform built for the future of financial services.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

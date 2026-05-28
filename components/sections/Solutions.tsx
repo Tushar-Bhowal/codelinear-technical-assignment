@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MoveRight } from "lucide-react";
+import { LearnMoreLink } from "@/components/ui/LearnMoreLink";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/Container";
 import { TimelineAnimation } from "@/components/ui/TimelineAnimation";
@@ -19,7 +19,6 @@ export function Solutions() {
       aria-label="Solutions"
       className="relative isolate overflow-hidden bg-bg py-12"
     >
-      {/* Decorative gradient blob — lower-right, matches Figma ellipse 557×557 */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-[67%] top-[38%] h-[557px] w-[557px] rounded-full opacity-30 blur-[100px]"
@@ -32,7 +31,6 @@ export function Solutions() {
         as="div"
         className="grid items-start gap-12 lg:grid-cols-[2fr_3fr] lg:gap-x-[clamp(3rem,11vw,13.5rem)]"
       >
-        {/* Left: heading + CTA */}
         <div className="flex flex-col gap-12">
           <TimelineAnimation
             as="h2"
@@ -55,7 +53,6 @@ export function Solutions() {
           </TimelineAnimation>
         </div>
 
-        {/* Right: 2-column card grid (76px col-gap, 52px row-gap from Figma) */}
         <TimelineAnimation
           animationNum={2}
           timelineRef={sectionRef}
@@ -63,18 +60,23 @@ export function Solutions() {
         >
           {solutionCards.map((card) => (
             <article key={card.slug} className="flex flex-col gap-6.5">
-              {/* Icon — 49px tall; loan cards export includes the NBFC badge inline */}
-              <Image
-                src={card.icon}
-                alt=""
-                width={card.iconWidth}
-                height={49}
-                unoptimized
-                className="h-[49px] max-w-full"
-                style={{ width: "auto" }}
-              />
+              <div className="flex items-center justify-between gap-4 pr-10">
+                <Image
+                  src={card.icon}
+                  alt=""
+                  width={card.iconWidth}
+                  height={49}
+                  unoptimized
+                  className="shrink-0"
+                  style={{ height: "49px", width: "auto" }}
+                />
+                {card.nbfc ? (
+                  <span className="font-mono text-small font-normal uppercase tracking-normal leading-[1.3] text-light opacity-60">
+                    NBFC
+                  </span>
+                ) : null}
+              </div>
 
-              {/* Title + body */}
               <div className="flex flex-col gap-8">
                 <h3 className="font-display font-normal text-title leading-[1.2] text-light">
                   {card.title}
@@ -84,18 +86,7 @@ export function Solutions() {
                 </p>
               </div>
 
-              {/* Learn more link — Chivo Mono 14px uppercase brand */}
-              <Link
-                href="#"
-                className="inline-flex items-baseline gap-2 font-mono text-small uppercase text-brand no-underline transition-opacity hover:opacity-70"
-              >
-                <span className="flex flex-col gap-1">
-                  <span>learn</span>
-                  <div className="h-px w-[4ch] bg-current" />
-                </span>
-                <span>more</span>
-                <MoveRight size={14} strokeWidth={1.5} className="self-center" />
-              </Link>
+              <LearnMoreLink href="#" label="learn more" />
             </article>
           ))}
         </TimelineAnimation>

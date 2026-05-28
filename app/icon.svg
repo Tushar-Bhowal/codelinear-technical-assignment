@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="7" fill="#000D12"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00B4FD"/>
+      <stop offset="100%" stop-color="#003ACE"/>
+    </linearGradient>
+  </defs>
+  <text
+    x="3"
+    y="24"
+    font-family="Arial, sans-serif"
+    font-weight="600"
+    font-size="19"
+    letter-spacing="-0.5"
+    fill="url(#g)"
+  >N7</text>
+</svg>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -10,9 +10,8 @@ import type { NavLink } from "./Navbar";
 
 export function NavbarMobile({ links }: { links: NavLink[] }) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  // Guards createPortal: false on server, true on client — no setState-in-effect.
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
