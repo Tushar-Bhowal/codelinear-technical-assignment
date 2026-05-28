@@ -18,6 +18,7 @@ Pixel-perfect, fully responsive marketing site for the N7 / CB7 digital banking 
 | **Framer Motion v12** | Scroll-reveal stagger animations, the stacked-deck carousel, and hamburger icon swap. Easing: `cubic-bezier(0.22, 1, 0.36, 1)` throughout |
 | **next/image** | Automatic WebP conversion, lazy loading, and size hints via `sizes` prop — biggest single Lighthouse performance win |
 | **next/font** | Archivo (display/body) and Chivo Mono (mono/labels) loaded with zero layout shift |
+| **Lenis** | Physics-based smooth scroll — exponential ease-out curve, respects `prefers-reduced-motion` |
 | **Vercel** | Edge-cached static output, automatic preview deployments |
 
 ---

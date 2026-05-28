@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Chivo_Mono } from "next/font/google";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -47,7 +48,7 @@ export default function RootLayout({
       className={`${archivo.variable} ${chivoMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-fg font-display">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
